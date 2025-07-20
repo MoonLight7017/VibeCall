@@ -1,0 +1,1 @@
+web: gunicorn vibeCall.wsgi
