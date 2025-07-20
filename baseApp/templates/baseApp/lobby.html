@@ -31,6 +31,26 @@
 
 
 <script type="text/javascript">
+
+    // Speak welcome message on page load
+    window.addEventListener('DOMContentLoaded', () => {
+        const popup = document.getElementById('welcome-popup');
+        popup.style.display = 'block';
+
+        const message = "Welcome to VibeCall. Enter your room name and your name to join the call with friends.";
+        const utterance = new SpeechSynthesisUtterance(message);
+
+        utterance.lang = 'en-US';
+        utterance.pitch = 1;
+        utterance.rate = 1;
+
+        utterance.onend = () => {
+            popup.style.display = 'none';
+        };
+
+        speechSynthesis.speak(utterance);
+    });
+
     let form = document.getElementById('form')
 
     let handleSubmit = async(e)=>{
